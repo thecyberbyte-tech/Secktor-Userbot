@@ -14,8 +14,8 @@ pm_caption += "**Friday OS** : `3.14`\n"
 pm_caption += "**Current Sat** : `cyberbyteSat-2.25`\n"
 pm_caption += f"**My Boss** : {DEFAULTUSER} \n"
 pm_caption += "**Heroku Database** : `AWS - Working Properly`\n\n"
-pm_caption += "**License** : [MIT Licence](github.com/cyberbyte8869/secktor/blob/master/LICENSE)\n"
-pm_caption += "Copyright : By [cyberbyte@Github](GitHub.com/cyberbyte8869)\n"
+pm_caption += "**License** : [MIT Licence](github.com/thecyberbyte/secktor/blob/master/LICENSE)\n"
+pm_caption += "Copyright : By [cyberbyte@Github](GitHub.com/thecyberbyte)\n"
 pm_caption += " [Deploy secktorUserbot](https://telegra.ph/)"
 #@command(outgoing=True, pattern="^.alive$")
 @borg.on(admin_cmd(pattern=r"alive", allow_sudo=True))
