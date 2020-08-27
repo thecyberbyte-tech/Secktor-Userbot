@@ -1,6 +1,6 @@
 ## Welcome to secktor private messaging protocol
 
-You can use the ![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor) to create your own userbot
+You can use the [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor) to create your own userbot
 
 our work is based on [friday](https://github.com/StarkGang/FridayUserbot) and [uniborg](https://github.com/udf/uniborg)
 ### pre-requisites
