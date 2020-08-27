@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+## Welcome to secktor private messaging protocol
 
-You can use the [editor on GitHub](https://github.com/thecyberbyte/secktor/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+You can use the ![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor) to create your own userbot
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+our work is based on [friday](https://github.com/StarkGang/FridayUserbot) and [uniborg](https://github.com/udf/uniborg)
+### pre-requisites
 
-### Markdown
+## Telegram-String
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[![Run on Repl.it](https://repl.it/badge/github/STARKGANG/friday)](https://Secktor.cyberbyte.repl.run)
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+### The Normal Way
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+Simply clone the repository and run the main file:
+```sh
+git clone https://github.com/thecyberbyte/secktor
+cd secktor
+virtualenv -p /usr/bin/python3 venv
+. ./venv/bin/activate
+pip install -r requirements.txt
+# <Create local_config.py with variables as given below>
+python3 -m userbot
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+An example `local_config.py` file could be:
 
-### Jekyll Themes
+**Not All of the variables are mandatory**
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/thecyberbyte/secktor/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+__The Userbot should work by setting only the first two variables__
 
-### Support or Contact
+```python3
+from heroku_config import Var
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+class Development(Var):
+  APP_ID = 6
+  API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
+```
+
+
+### UniBorg Configuration
+
+
+The UniBorg Config is situated in `userbot/uniborgConfig.py`.
+
+**Heroku Configuration**
+Simply just leave the Config as it is.
+
+**Local Configuration**
+Fortunately there are no Mandatory vars for the UniBorg Support Config.
+
+## Mandatory Vars
+
+- Only two of the environment variables are mandatory.
+- This is because of `telethon.errors.rpc_error_list.ApiIdPublishedFloodError`
+    - `APP_ID`:   You can get this value from https://my.telegram.org
+    - `API_HASH`:   You can get this value from https://my.telegram.org
+- The userbot will not work without setting the mandatory vars.
+
