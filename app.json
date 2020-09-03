@@ -126,8 +126,79 @@
       "description": "Required for Correct Time for autopic get from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
       "value": "",
       "required": false
-    }
-
+    },
+        "MONGO_DB_URI": {
+            "description": "Your MongoDB Atlas URL.",
+            "required": true 
+        },
+        "SCREENSHOT_ACCESS_LAYER_KEY": {
+            "description": "Screenshot Layer API Key for .screenshot command. Get from https://screenshotlayer.com/. Please refer to README for getting the key.",
+            "required": false 
+        },
+        "OPEN_WEATHER_MAP_APPID": {
+            "description": "OpenWeather Map API Key for .weather command. Get from https://openweathermap.org/.",
+            "required": false
+        },
+        "BOTLOG": {
+            "description": "In case you want to turn on logging, set this True.",
+            "value": "False",
+            "required": false 
+        },
+        "BOTLOG_CHATID": {
+            "description": "Chat ID for Botlog. Get it from group management bots such as Marie or her forks.",
+            "value": "0",
+            "required": false 
+        },
+        "CONSOLE_LOGGER_VERBOSE": {
+            "description": "If you want verbosity on the Logging.",
+            "value": "False",
+            "required": false 
+        },
+        "PM_AUTO_BAN": {
+            "description": "PM Auto-Ban Feature Switch.",
+            "value": "False",
+            "required": false  
+        },
+        "SPOTIFY_USERNAME": {
+            "description": "Spotify Current Listening Music to Bio.",
+            "required": false
+        },
+        "SPOTIFY_PASS": {
+            "description": "Spotify Current Listening Music to Bio.",
+            "required": false
+        },
+        "LASTFM_API": {
+            "description": "API Key for Last.FM module. Get from https://www.last.fm/api/account/create.",
+            "required": false
+        },
+          "LASTFM_SECRET": {
+            "description": "SECRET Key for Last.FM module. Get from https://www.last.fm/api/account/create.",
+            "required": false
+        },
+          "LASTFM_USERNAME": {
+            "description": "Last.FM Username",
+            "required": false
+        },
+          "LASTFM_PASSWORD": {
+            "description": "Last.FM Password",
+            "required": false
+        },
+        "BIO_PREFIX": {
+            "description": "Bot will add before song name. For both last.fm and spotify bio modules.",
+            "required": false
+        },
+        "DEFAULT_BIO": {
+            "description": "Default bio message.",
+            "required": false
+        },
+        "WELCOME_MUTE": {
+            "description": "Detect and mute spambots which match the Paperplane algorithm after they join a group. Use at your own risk, the algorithm is in beta stage.",
+            "required": false
+        },
+        "GDRIVE_FOLDER": {
+            "description": "Google Drive upload folder.",
+            "required": false
+        }
   },
   "addons": [{
     "plan": "heroku-postgresql",
