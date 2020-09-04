@@ -3,7 +3,7 @@
 You can use the following deployment methods to create your own userbot
 
 our work is based on [friday](https://github.com/StarkGang/FridayUserbot) and [uniborg](https://github.com/udf/uniborg)
-
+[![Docs](https://telegra.ph/file/cd00aa16ca33eb92fbacd.jpg)](https://cyberbyte8869.gitbook.io/secktor-docs/)
 ## heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor)
 
