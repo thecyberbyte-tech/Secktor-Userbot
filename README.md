@@ -1,8 +1,17 @@
 # secktor private messaging protocol
 
-You can use the [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor) to create your own userbot
+You can use the following deployment methods to create your own userbot
 
 our work is based on [friday](https://github.com/StarkGang/FridayUserbot) and [uniborg](https://github.com/udf/uniborg)
+### deploy secktor on
+## heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor)
+## run on google cloud
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?git_repo=https://github.com/thecyberbyte/secktor)
+## on docker
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/thecyberbyte/secktor/master/app.json)
+## on Azure
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fthecyberbyte%2fsecktor%2fmaster%2fapp.json)
 ### pre-requisites
 
 ## Telegram-String
