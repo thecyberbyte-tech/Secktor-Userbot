@@ -1,6 +1,5 @@
 # secktor private messaging protocol
- 
-                            [![Docs](https://telegra.ph/file/cd00aa16ca33eb92fbacd.jpg)](https://cyberbyte8869.gitbook.io/secktor-docs/)
+ [![Docs](https://telegra.ph/file/cd00aa16ca33eb92fbacd.jpg)](https://cyberbyte8869.gitbook.io/secktor-docs/)
 
 ## heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor)
