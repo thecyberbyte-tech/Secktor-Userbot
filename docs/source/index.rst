@@ -1,5 +1,5 @@
 ==========================
-TG-UserBot's Documentation
+Secktor's Documentation
 ==========================
 
 
