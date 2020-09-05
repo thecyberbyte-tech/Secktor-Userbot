@@ -45,11 +45,11 @@ async def get_chat(client, message):
         else:
             chatfile += "{} - ({})\n".format(chat.chat_name, chat.chat_id)
 
-    with open("nana/cache/chatlist.txt", "w", encoding="utf-8") as writing:
+    with open("userbot/cache/chatlist.txt", "w", encoding="utf-8") as writing:
         writing.write(str(chatfile))
         writing.close()
 
-    await client.send_document("self", document="nana/cache/chatlist.txt",
+    await client.send_document("self", document="userbot/cache/chatlist.txt",
                                caption="Here is the chat list that I joined.")
     await edrep(message, text="My chat list exported to my saved messages.")
-    os.remove("nana/cache/chatlist.txt")
+    os.remove("userbot/cache/chatlist.txt")
