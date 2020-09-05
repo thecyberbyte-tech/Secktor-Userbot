@@ -1,7 +1,7 @@
 """
 initial assistant's modules
 """
-from nana import ASSISTANT_LOAD, ASSISTANT_NOLOAD, log
+from userbot import ASSISTANT_LOAD, ASSISTANT_NOLOAD, log
 
 
 def __list_all_modules():
