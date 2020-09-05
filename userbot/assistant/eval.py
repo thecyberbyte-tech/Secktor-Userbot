@@ -7,8 +7,8 @@ from io import StringIO
 
 from pyrogram import filters
 
-from nana import Owner, logging, setbot
-from nana.modules.devs import aexec
+from userbot import Owner, logging, setbot
+from userbot.plugins.devs import aexec
 
 
 @setbot.on_message(filters.user(Owner) & filters.command(["eval"]))
