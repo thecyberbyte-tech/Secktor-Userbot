@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module for managing events.
@@ -15,7 +15,8 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import bot, BOTLOG_CHATID, LOGSPAMMER
+from userbot import bot, BOTLOG, BOTLOG_CHATID, LOGS
+from userbot.modules.dbhelper import get_exclude
 
 
 def register(**args):
@@ -24,10 +25,9 @@ def register(**args):
     disable_edited = args.get('disable_edited', False)
     ignore_unsafe = args.get('ignore_unsafe', False)
     unsafe_pattern = r'^[^/!#@\$A-Za-z]'
-    groups_only = args.get('groups_only', False)
-    trigger_on_fwd = args.get('trigger_on_fwd', False)
+    group_only = args.get('group_only', False)
     disable_errors = args.get('disable_errors', False)
-
+    insecure = args.get('insecure', False)
     if pattern is not None and not pattern.startswith('(?i)'):
         args['pattern'] = '(?i)' + pattern
 
@@ -37,70 +37,67 @@ def register(**args):
     if "ignore_unsafe" in args:
         del args['ignore_unsafe']
 
-    if "groups_only" in args:
-        del args['groups_only']
+    if "group_only" in args:
+        del args['group_only']
 
     if "disable_errors" in args:
         del args['disable_errors']
 
-    if "trigger_on_fwd" in args:
-        del args['trigger_on_fwd']
+    if "insecure" in args:
+        del args['insecure']
 
     if pattern:
         if not ignore_unsafe:
-            args['pattern'] = pattern.replace('^.', unsafe_pattern, 1)
+            args['pattern'] = args['pattern'].replace('^.', unsafe_pattern, 1)
 
     def decorator(func):
         async def wrapper(check):
-            if not LOGSPAMMER:
-                send_to = check.chat_id
-            else:
-                send_to = BOTLOG_CHATID
-
-            if not trigger_on_fwd and check.fwd_from:
+            if check.edit_date and check.is_channel and not check.is_group:
+                # Messages sent in channels can be edited by other users.
+                # Ignore edits that take place in channels.
                 return
-
-            if groups_only and not check.is_group:
-                await check.respond("`I don't think this is a group.`")
+            if group_only and not check.is_group:
+                await check.respond("`Are you sure this is a group?`")
+                return
+            if check.via_bot_id and not insecure and check.out:
+                # Ignore outgoing messages via inline bots for security reasons
                 return
 
             try:
                 await func(check)
-
-            # Thanks to @kandnub for this HACK.
+            #
+            # HACK HACK HACK
             # Raise StopPropagation to Raise StopPropagation
             # This needed for AFK to working properly
-
+            # TODO
+            # Rewrite events to not passing all exceptions
+            #
             except events.StopPropagation:
                 raise events.StopPropagation
             # This is a gay exception and must be passed out. So that it doesnt spam chats
             except KeyboardInterrupt:
                 pass
-            except BaseException:
-
-                # Check if we have to disable it.
-                # If not silence the log spam on the console,
-                # with a dumb except.
-
+            except BaseException as e:
+                LOGS.exception(e)  # Log the error in console
+                # Check if we have to disable error logging message.
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**USERBOT ERROR REPORT**\n"
-                    link = "[PaperplaneExtended Support Chat](https://t.me/PaperplaneExtendedSupport)"
-                    text += "If you want to, you can report it"
+                    text = "**Sorry, I encountered a error!**\n"
+                    link = "[https://t.me/secktorsupport](Userbot Support Chat)"
+                    text += "If you wanna you can report it"
                     text += f"- just forward this message to {link}.\n"
-                    text += "Nothing is logged except the fact of error and date\n"
+                    text += "I won't log anything except the fact of error and date\n"
 
-                    ftext = "========== DISCLAIMER =========="
-                    ftext += "\nThis file uploaded ONLY here,"
-                    ftext += "\nwe logged only fact of error and date,"
-                    ftext += "\nwe respect your privacy,"
-                    ftext += "\nyou may not report this error if you've"
-                    ftext += "\nany confidential data here, no one will see your data\n"
-                    ftext += "================================\n\n"
-                    ftext += "--------BEGIN USERBOT TRACEBACK LOG--------\n"
+                    ftext = "\nDisclaimer:\nThis file uploaded ONLY here, "
+                    ftext += "we logged only fact of error and date, "
+                    ftext += "we respect your privacy, "
+                    ftext += "you may not report this error if you've "
+                    ftext += "any confidential data here, no one will see your data "
+                    ftext += "if you choose not to do so.\n\n"
+                    ftext += "--------BEGIN USERBOT TRACEBACK LOG--------"
                     ftext += "\nDate: " + date
-                    ftext += "\nChat ID: " + str(check.chat_id)
+                    ftext += "\nGroup ID: " + str(check.chat_id)
                     ftext += "\nSender ID: " + str(check.sender_id)
                     ftext += "\n\nEvent Trigger:\n"
                     ftext += str(check.text)
@@ -110,9 +107,9 @@ def register(**args):
                     ftext += str(sys.exc_info()[1])
                     ftext += "\n\n--------END USERBOT TRACEBACK LOG--------"
 
-                    command = "git log --pretty=format:\"%an: %s\" -10"
+                    command = "git log --pretty=format:\"%an: %s\" -5"
 
-                    ftext += "\n\n\nLast 10 commits:\n"
+                    ftext += "\n\n\nLast 5 commits:\n"
 
                     process = await asyncsubshell(command,
                                                   stdout=asyncsub.PIPE,
@@ -127,15 +124,19 @@ def register(**args):
                     file.write(ftext)
                     file.close()
 
-                    if LOGSPAMMER:
-                        await check.client.respond(
-                            "`Sorry, my userbot has crashed.\
-                        \nThe error logs are stored in the userbot's log chat.`"
+                    if BOTLOG:
+                        await check.client.send_file(
+                            BOTLOG_CHATID,
+                            "error.log",
+                            caption=text,
+                        )
+                    else:
+                        await check.client.send_file(
+                            check.chat_id,
+                            "error.log",
+                            caption=text,
                         )
 
-                    await check.client.send_file(send_to,
-                                                 "error.log",
-                                                 caption=text)
                     remove("error.log")
             else:
                 pass
@@ -143,6 +144,35 @@ def register(**args):
         if not disable_edited:
             bot.add_event_handler(wrapper, events.MessageEdited(**args))
         bot.add_event_handler(wrapper, events.NewMessage(**args))
+        return wrapper
+
+    return decorator
+
+
+def grp_exclude(force_exclude=False):
+    """ Check if the chat is excluded. """
+    def decorator(func):
+        async def wrapper(check):
+            exclude = await get_exclude(check.chat_id)
+            if exclude is not None:
+                LOGS.info(func)
+                if force_exclude:
+                    LOGS.info("EXCLUDED! force_exclude is True")
+                    return
+
+                if exclude['excl_type'] == 2:  # all
+                    LOGS.info("EXCLUDED! type=2")
+                    return
+
+                if exclude['excl_type'] == 1 and check.out is False:  # in
+                    LOGS.info(
+                        "EXCLUDED! type=1 and check.out is False"
+                    )
+                    return
+
+                LOGS.info("NOT EXCLUDED!")
+            await func(check)
+
         return wrapper
 
     return decorator
