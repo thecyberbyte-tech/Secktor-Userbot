@@ -3,7 +3,7 @@ from platform import python_version
 
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from nana import (app,
+from userbot import (app,
                   setbot,
                   AdminSettings,
                   DB_AVAILABLE,
