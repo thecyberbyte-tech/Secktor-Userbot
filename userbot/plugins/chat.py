@@ -9,8 +9,7 @@ from time import sleep
 from telethon.tl.functions.channels import LeaveChannelRequest
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
-from userbot.events import register, grp_exclude
-
+from userbot.events import register
 
 @register(outgoing=True, pattern="^.userid$")
 @grp_exclude()
