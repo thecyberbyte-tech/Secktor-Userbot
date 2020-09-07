@@ -1,3 +1,4 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/thecyberbyte/secktor)
 # secktor private messaging protocol
  [![Docs](https://telegra.ph/file/68359afb2572722687848.jpg)](https://cyberbyte8869.gitbook.io/secktor-docs/)
 
