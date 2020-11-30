@@ -10,7 +10,7 @@ from userbot.utils import admin_cmd
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
-  WARN_PIC = "https://telegra.ph/file/82c595986872349e5ba1a.jpg"
+  WARN_PIC = "https://telegra.ph/file/81e187ddde252539da59d.jpg"
 else:
   WARN_PIC = PMPERMIT_PIC
 
@@ -24,7 +24,7 @@ USER_BOT_WARN_ZERO = "`You were spamming my Boss's inbox, henceforth your retard
 USER_BOT_NO_WARN = ("`Hello ! This is` **secktor**\n"
                     "`Private Messaging Security Protocol ⚠️`\n\n"
                     "**Currently My Boss**\n"
-                    f"{DEFAULTUSER} is Busy ! So Better Don't Spam His Inbox !\n\n"
+                    f"{DEFAULTUSER} is Busy Person! So Better Don't Spam His Inbox !\n\n"
                     f"{CUSTOM_MIDDLE_PMP} \n\n"
                     "**Now You Are In Trouble So Send** 🍁 `/start` 🍁  **To Start A Valid Conversation!!**")
 
