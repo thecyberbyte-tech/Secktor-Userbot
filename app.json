@@ -1,7 +1,7 @@
 {
   "name": "secktor",
-  "description": "Userbot created by a @cyberbytians and join https://t.me/secktorsupport for any problems or support",
-  "logo": "https://telegra.ph/file/0c646c3ba7a91c36373f9.jpg",
+  "description": "Userbot created by a @sam_pandey and join https://t.me/secktorsupport for any problems or support",
+  "logo": "https://telegra.ph/file/100db369d5b4656d0e59c.jpg",
     "keywords": [
     "telegram",
     "userbot",
@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/cyberbyte8869/secktor/",
+  "repository": "https://github.com/thecyberbyte/secktor/",
   "website": "#TODO",
   "success_url": "#TODO",
   "env": {
@@ -28,7 +28,7 @@
       "required": false
     },
     "ALIVE_NAME": {
-      "description": "Fill your Full name or Username like @cyberbytians.",
+      "description": "Fill your Full name or Username like @sam_pandey.",
       "value": ""
     },
     "APP_ID": {
@@ -58,7 +58,7 @@
       "value": ""
     },
     "STRING_SESSION": {
-      "description": "Get this value from https://secktor.cyberbyte.repl.run",
+      "description": "Get this value from https://secktor.thecyberbyte.repl.run",
       "value": ""
     },
     "GITHUB_ACCESS_TOKEN": {
@@ -67,7 +67,7 @@
       "required": false
     },
     "GIT_REPO_NAME": {
-      "description": "Your repo name Example:cyberbyte8869/secktor, but GITHUB_ACCESS_TOKEN must be setup first.",
+      "description": "Your repo name Example:thecyberbyte/secktor, but GITHUB_ACCESS_TOKEN must be setup first.",
       "value": "",
       "required": false
     },
