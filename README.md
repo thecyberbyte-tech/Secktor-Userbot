@@ -12,7 +12,7 @@ other deployment options [here](https://cyberbyte8869.gitbook.io/secktor-docs/ot
 
 ## Telegram-String
 
-[![Run on Repl.it](https://repl.it/@thecyberbyte/StylishLikelyAmoebas#main.py)
+[![Run on Repl.it] (https://repl.it/@thecyberbyte/StylishLikelyAmoebas#main.py)
 
 
 ### The Normal Way
