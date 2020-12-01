@@ -1,9 +1,11 @@
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/thecyberbyte/secktor)
 # secktor private messaging protocol
- [![Docs](https://telegra.ph/file/68359afb2572722687848.jpg)](https://cyberbyte8869.gitbook.io/secktor-docs/)
+ [![Docs](https://telegra.ph/file/68359afb2572722687848.jpg)](https://cyberbyte8869.gitbook.io/secktor-docs/
+ 
+ [![PNG](https://telegra.ph/file/e18d1c4ff445b33155519.jpg)]
 
 ## heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor-userbot)
 
 other deployment options [here](https://cyberbyte8869.gitbook.io/secktor-docs/other-deployment-methods)
 ### pre-requisites
