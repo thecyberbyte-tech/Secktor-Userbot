@@ -7,7 +7,7 @@
 ## heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor-userbot)
 
-other deployment options [here](https://cyberbyte8869.gitbook.io/secktor-docs/other-deployment-methods)
+other deployment options [here](https://thecyberbyte.github.io/Secktor-Userbot/)
 ### pre-requisites
 
 ## Telegram-String
