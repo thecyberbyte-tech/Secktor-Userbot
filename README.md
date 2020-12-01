@@ -19,7 +19,7 @@ other deployment options [here](https://cyberbyte8869.gitbook.io/secktor-docs/ot
 
 Simply clone the repository and run the main file:
 ```sh
-git clone https://github.com/thecyberbyte/secktor
+git clone https://github.com/thecyberbyte/secktor-userbot
 cd secktor
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
