@@ -5,7 +5,7 @@
  [![PNG](https://telegra.ph/file/e18d1c4ff445b33155519.jpg)]
 
 ## heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thecyberbyte/secktor-userbot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sam-pandey/Secktor-Userbot)
 
 other deployment options [here](https://thecyberbyte.github.io/Secktor-Userbot/)
 ### pre-requisites
