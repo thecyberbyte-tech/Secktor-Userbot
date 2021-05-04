@@ -129,7 +129,7 @@
     },
         "MONGO_DB_URI": {
             "description": "Your MongoDB Atlas URL.",
-            "required": true 
+            "required": false 
         },
         "SCREENSHOT_ACCESS_LAYER_KEY": {
             "description": "Screenshot Layer API Key for .screenshot command. Get from https://screenshotlayer.com/. Please refer to README for getting the key.",
